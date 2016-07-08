@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bonecp-config>
+    <default-config>
+        <property name="minConnectionsPerPartition">1</property>
+        <property name="maxConnectionsPerPartition">100</property>
+        <property name="partitionCount">1</property>
+    </default-config>
+
+   <named-config name="sub">
+        <property name="jdbcUrl">jdbc:mysql://172.16.1.10:3306/evngw</property>
+        <property name="username">root</property>
+        <property name="password">123456</property>
+    </named-config>
+
+ <!--	
+    <named-config name="sub">
+        <property name="jdbcUrl">jdbc:oracle:thin:@172.16.1.9:1521:CTT</property>
+        <property name="username">voicesub</property>
+        <property name="password">123456</property>
+    </named-config>
+ --> 
+   
+</bonecp-config>
