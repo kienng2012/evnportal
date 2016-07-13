@@ -62,6 +62,7 @@ public class TextConverter {
 		return ch;
 	}
 
+	//Ham nay chua replace unicode
 	public static String removeAccent(String s) {
 		s = s.replace("  ", " ");
 		s = s.replace("`", " ");
@@ -72,6 +73,7 @@ public class TextConverter {
 		return sb.toString();
 	}
 	
+	//remove unicode true
 	public static String unAccent(String s) {
 		try {
 			String temp = Normalizer.normalize(s, Normalizer.Form.NFD);

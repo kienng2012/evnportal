@@ -91,7 +91,10 @@ public class MTQueueDao extends Thread {
 							info = info.replaceAll("&", "_");
 							boolean match = info.matches("[\\p{ASCII}]*");
 							if(!match){
-								info = TextConverter.removeAccent(info);
+//								Utils.logger.info(className + " NOT MATCH REGEX UNICODE :[\\p{ASCII}]* ");
+//								info = TextConverter.removeAccent(info);
+								//remove unicode msg
+								info = TextConverter.unAccent(info);
 							}
 							
 							mtObject.setInfo(info);
@@ -166,6 +169,27 @@ public class MTQueueDao extends Thread {
 			}
 		}
 	}
+	
+	
+	/*
+	public static void main (String [] args)
+	{
+		String info ="Dien luc Nghi Loc du kien ngung cap dien Trạm 3 Bác Yen (KF) tu 5h0_14/07/2016 den 18h0_14/07/2016 de Sua chua luoi dien . Tran trong";
+		boolean match = info.matches("[\\p{ASCII}]*");
+		if(!match)
+		{
+			System.out.println("NOT PASS");
+			String info1 = TextConverter.removeAccent(info);
+			String info2 = TextConverter.unAccent(info);
+			
+			System.out.println(info1);
+			System.out.println(info2);
+			
+		}
+		System.out.println(info);
+		
+	}
+	*/
 	
 	public static  String getInsertPlaceholders(int placeholderCount) {
         final StringBuilder builder = new StringBuilder("(");

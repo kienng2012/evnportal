@@ -32,6 +32,7 @@ public class ExcutePushMt extends Thread{
 					String msisdn = obj.getUserId().trim();
 					String alias = obj.getServiceId().trim();
 					String message = obj.getInfo().trim();
+					
 					message = TextConverter.unAccent(message);
 					
 					int contentType = obj.getContentType();
@@ -112,6 +113,9 @@ public class ExcutePushMt extends Thread{
 								Utils.logger.info("retry send request to msisdn=" + obj.getUserId() + ", result= " + result +", count= " + countRetry + " times");
 							}*/
 							
+							
+							
+							//TODO : Loc cac ban tin exception de xu ly nhung tin loi (unicode) sau do ms add vao queue Kienng
 							Thread.sleep(500);
 							
 							queue.add(obj);

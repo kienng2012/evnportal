@@ -87,7 +87,9 @@ public class MTQueueGWDAO extends Thread {
 							info = info.replaceAll("`", "");
 							boolean match = info.matches("[\\p{ASCII}]*");
 							if(!match){
-								info = TextConverter.removeAccent(info);
+//								info = TextConverter.removeAccent(info);
+								//remove unicode msg
+								info = TextConverter.unAccent(info);
 							}
 							mtObject.setInfo(info);
 							
